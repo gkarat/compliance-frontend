@@ -391,11 +391,6 @@ export const useSystemBulkSelect = ({
     return items;
   };
 
-  const preselected = useMemo(
-    () => preselectedSystems.map(({ id }) => id),
-    [preselectedSystems]
-  );
-
   const itemIdsInTable = async () => {
     const items = await getItemsInTable();
 
@@ -407,7 +402,7 @@ export const useSystemBulkSelect = ({
   const bulkSelect = useBulkSelect({
     total,
     onSelect: onSelectCallback,
-    preselected,
+    preselected: preselectedSystems,
     itemIdsInTable,
     itemIdsOnPage,
   });
